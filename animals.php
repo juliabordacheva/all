@@ -33,4 +33,10 @@ foreach($animals as $areaName => $animalArray) {
     }
 }
 print_r($animals2);
+list($a,$b) = array_slice($animals2, 0, 1);
+shuffle($a); 
+ shuffle($b);
+ $a1 = implode (",", $a);
+ $b1 = implode (",", $b);
+ 
 ?>
