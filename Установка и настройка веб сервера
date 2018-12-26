@@ -1,0 +1,112 @@
+<!-- Установка и настройка веб сервера
+
+cd/usr/local/etc/ngnx - путь к серверу
+cd servers/ тут лежат конфиги
+
+<table>
+<?php/* foreach($data as $item)*/ /*{*/ ?>
+<tr>
+  <td><?php echo $item['id']; ?></td>
+  <td><?php echo $item['name']; ?></td>
+  </tr>
+  <?php } ?>
+  </table>
+
+
+
+
+  <?php /*if($a==5*/):?>
+  <span>A равно 5</span>
+  <?php /*endif*/;?>
+
+  <?php /*switch*/ ($foo):?>
+  <?php /*case 1*/: ?>
+  <?php /*case 1*/: ?>
+
+  <?php /*endswitch*/; ?>
+
+  Объект в джсоне это то что заключено в фигурные скобки и то что имеет значение
+
+  Массив заключается в квадратные скобки и нет ключей. Если имеются ключи, то нужно обращиться к объектам только по ключам
+  У массива нет ключей., поэтому используем форич для перебора массива
+  Стоки в двойных кавычках, одинарные нельзя
+  Числа без кавычек
+
+  true false null 
+json_decode($jsonData, true); //array
+
+json_encode($array);//string -->
+
+<?php
+
+$data = file_get_contents(__DIR__ . '/countries.json');
+
+$countries = json_decode($data, true);
+
+var_dump($countries); 
+$countries = [
+   ['name' = 'Мексика', 'term' => 1, 'visa' => true],
+   ['name' = 'Филиппины', 'term' => 1, 'visa' => false],
+   ['name' = 'Тайланд', 'term' => 1, 'visa' => null],
+]; 
+
+echo json_encode($countries);
+
+exit;
+
+?>
+
+
+
+
+<!DOCTYPE>
+<html>	
+<head> 
+   <title>Пример работы с json</title>
+   </head>
+   <body>
+
+   <table>
+    <tr>
+       <td>Страна</td>
+       <td>Срок прибывания</td> 
+       <td>Нужна ли виза</td>
+    </tr>
+
+    <?php foreach ($countries as $country) { ?>
+    	<tr>
+    		<td><?php echo $country['name'] ?></td>
+    		<td><?php echo $country['term'] ?></td>
+    		<td><?php 
+               if ($country['visa']) {
+                  echo 'Да';
+               } elseif (country['visa']) === false {
+               	  echo 'Нет';
+               	} else {
+               		echo "Не знаю";
+               	}
+               
+    		
+    		?></td>
+    			
+
+    		
+
+
+
+    	</tr>
+    }
+    <!-- <tr>
+       <td>Мексика</td>
+       <td>1</td> 
+       <td>Да</td>
+    </tr> -->
+    <!-- <tr>
+       <td>Филиппины</td>
+       <td>3</td> 
+       <td>нет</td>
+    </tr> -->
+
+</table>
+</body>
+</html>
